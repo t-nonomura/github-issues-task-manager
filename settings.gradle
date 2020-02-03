@@ -1,2 +1,1 @@
-include ':app', ':networkmodule'
-rootProject.name='GithubIssuesTaskManager'
+include ':app', ':data:api'

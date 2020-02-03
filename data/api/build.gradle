@@ -1,6 +1,6 @@
 import dependencies.Dep
 
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 android {
@@ -9,13 +9,13 @@ android {
 
 
     defaultConfig {
-        applicationId "com.treeengineering.networkmodule"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
     }
 
     buildTypes {
@@ -24,7 +24,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -35,7 +34,6 @@ dependencies {
     implementation Dep.Kotlin.stdLib
 
     testImplementation Dep.Test.jnit
-    androidTestImplementation Dep.Test.androidJunitKtx
 
     implementation Dep.Square.okHttp3
     implementation Dep.Square.Retrofit.retrofit
