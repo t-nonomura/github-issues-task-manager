@@ -2,6 +2,7 @@
 import dependencies.Dep
 
 buildscript {
+
     repositories {
         google()
         jcenter()
@@ -19,7 +20,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-
     }
 }
 

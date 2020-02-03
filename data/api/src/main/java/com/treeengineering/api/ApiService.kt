@@ -1,6 +1,6 @@
-package com.treeengineering.githubissuestaskmanager.api
+package com.treeengineering.api
 
-import com.treeengineering.githubissuestaskmanager.api.response.Repo
+import com.treeengineering.api.response.Repo
 import retrofit2.http.GET
 import retrofit2.http.Path
 

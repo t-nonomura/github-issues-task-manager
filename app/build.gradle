@@ -26,6 +26,7 @@ android {
 }
 
 dependencies {
+    implementation project(':data:api')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.coreKtx
@@ -38,4 +39,11 @@ dependencies {
     testImplementation Dep.Test.jnit
     androidTestImplementation Dep.Test.androidJunitKtx
     androidTestImplementation Dep.Test.espressoCore
+
+    implementation Dep.Koin.koinCore
+    implementation Dep.Koin.koinCoreExt
+    implementation Dep.Koin.koinAndroidScope
+    implementation Dep.Koin.koinAndroidViewModel
+    implementation Dep.Koin.koinAndroidExt
+    testImplementation Dep.Koin.koinTest
 }

@@ -1,4 +1,4 @@
-package com.treeengineering.githubissuestaskmanager.api.response
+package com.treeengineering.api.response
 
 data class Repo(
     val id: Int,
