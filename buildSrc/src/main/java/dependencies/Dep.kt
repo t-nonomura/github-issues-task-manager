@@ -40,7 +40,7 @@ object Dep {
     }
 
     object Test {
-        val jnit = "junit:junit:4.12"
+        val junit = "junit:junit:4.12"
         val androidJunitKtx = "androidx.test.ext:junit-ktx:1.1.2-alpha02"
         val espressoCore = "androidx.test.espresso:espresso-core:3.3.0-alpha02"
     }
