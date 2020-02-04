@@ -2,6 +2,7 @@ package com.treeengineering.githubissuestaskmanager
 
 import android.app.Application
 import com.treeengineering.api.di.apiModule
+import com.treeengineering.core.di.coreModule
 import com.treeengineering.githubissuestaskmanager.di.appModule
 import com.treeengineering.repository.di.repositoryModule
 import org.koin.android.ext.koin.androidContext
@@ -16,6 +17,7 @@ class App : Application() {
             androidContext(this@App)
             module { (listOf(
                 appModule,
+                coreModule,
                 apiModule,
                 repositoryModule)) }
         }
