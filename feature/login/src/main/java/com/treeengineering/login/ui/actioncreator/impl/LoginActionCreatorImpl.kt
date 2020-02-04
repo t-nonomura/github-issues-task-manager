@@ -1,5 +1,5 @@
 package com.treeengineering.login.ui.actioncreator.impl
 
-import com.treeengineering.login.ui.actioncreator.LoginActiionCreator
+import com.treeengineering.login.ui.actioncreator.LoginActionCreator
 
-class LoginActionCreatorImpl : LoginActiionCreator
+class LoginActionCreatorImpl : LoginActionCreator
