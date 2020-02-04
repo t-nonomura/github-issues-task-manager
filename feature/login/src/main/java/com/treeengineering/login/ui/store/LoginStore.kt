@@ -1,3 +1,7 @@
 package com.treeengineering.login.ui.store
 
-class LoginStore
+import com.treeengineering.core.store.Store
+
+class LoginStore : Store() {
+
+}

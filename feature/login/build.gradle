@@ -37,4 +37,11 @@ dependencies {
     testImplementation Dep.Test.junit
     androidTestImplementation Dep.Test.androidJunitKtx
     androidTestImplementation Dep.Test.espressoCore
+
+    implementation Dep.Koin.koinCore
+    implementation Dep.Koin.koinCoreExt
+    implementation Dep.Koin.koinAndroidScope
+    implementation Dep.Koin.koinAndroidViewModel
+    implementation Dep.Koin.koinAndroidExt
+    testImplementation Dep.Koin.koinTest
 }
