@@ -27,7 +27,7 @@
 
                 <data
                     android:host="oauth"
-                    android:scheme="gitm" />
+                    android:scheme="tmgi" />
             </intent-filter>
         </activity>
     </application>

@@ -12,7 +12,7 @@ object ApiClient {
 
         val httpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.github.com/")
+            .baseUrl("https://github.com/")
             .client(httpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
