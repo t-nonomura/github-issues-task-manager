@@ -35,6 +35,11 @@ dependencies {
     api Dep.AndroidX.constraint
     api Dep.Kotlin.Coroutines.core
 
+    implementation Dep.AndroidX.Navigation.navFragment
+    implementation Dep.AndroidX.Navigation.navFragmentKtx
+    implementation Dep.AndroidX.Navigation.navUi
+    implementation Dep.AndroidX.Navigation.navUiKtx
+
     testImplementation Dep.Test.junit
     androidTestImplementation Dep.Test.androidJunitKtx
     androidTestImplementation Dep.Test.espressoCore

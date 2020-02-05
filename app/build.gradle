@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+android.dataBinding.enabled = true
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -34,6 +36,11 @@ dependencies {
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.coreKtx
     implementation Dep.AndroidX.constraint
+
+    implementation Dep.AndroidX.Navigation.navFragment
+    implementation Dep.AndroidX.Navigation.navFragmentKtx
+    implementation Dep.AndroidX.Navigation.navUi
+    implementation Dep.AndroidX.Navigation.navUiKtx
 
     implementation Dep.Kotlin.stdLib
 

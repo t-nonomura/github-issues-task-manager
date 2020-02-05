@@ -11,6 +11,13 @@ object Dep {
         val coreKtx = "androidx.core:core-ktx:1.1.0"
         val constraint = "androidx.constraintlayout:constraintlayout:2.0.0-beta2"
 
+        object Navigation {
+            val version = "2.1.0"
+            val navFragment = "androidx.navigation:navigation-fragment:$version"
+            val navUi = "androidx.navigation:navigation-ui:$version"
+            val navFragmentKtx = "androidx.navigation:navigation-fragment-ktx:$version"
+            val navUiKtx = "androidx.navigation:navigation-ui-ktx:$version"
+        }
     }
 
     object Kotlin {
