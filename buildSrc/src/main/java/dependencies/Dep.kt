@@ -20,6 +20,21 @@ object Dep {
         }
     }
 
+    object Arch {
+        object Lifecycle {
+            val version = "1.1.1"
+            val runtime = "android.arch.lifecycle:runtime:$version"
+            val extensions = "android.arch.lifecycle:extensions:$version"
+            val reactivestreams = "android.arch.lifecycle:reactivestreams:$version"
+        }
+    }
+
+    object ReactiveX {
+        val rxJava = "io.reactivex.rxjava2:rxjava:2.1.6"
+        val rxAndroid = "io.reactivex.rxjava2:rxandroid:2.0.1"
+        val rxKotlin = "io.reactivex.rxjava2:rxkotlin:2.4.0"
+    }
+
     object Kotlin {
         val version = "1.3.61"
         val stdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$version"

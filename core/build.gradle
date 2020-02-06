@@ -35,6 +35,10 @@ dependencies {
     api Dep.AndroidX.constraint
     api Dep.Kotlin.Coroutines.core
 
+    implementation Dep.Arch.Lifecycle.runtime
+    implementation Dep.Arch.Lifecycle.extensions
+    implementation Dep.Arch.Lifecycle.reactivestreams
+
     implementation Dep.AndroidX.Navigation.navFragment
     implementation Dep.AndroidX.Navigation.navFragmentKtx
     implementation Dep.AndroidX.Navigation.navUi
