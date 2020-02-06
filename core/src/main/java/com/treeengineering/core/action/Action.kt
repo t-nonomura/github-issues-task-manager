@@ -1,3 +1,5 @@
 package com.treeengineering.core.action
 
-open class Action
+interface Action<out T> {
+    val data: T
+}
