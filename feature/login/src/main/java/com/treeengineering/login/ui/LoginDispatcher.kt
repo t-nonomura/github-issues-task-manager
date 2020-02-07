@@ -1,18 +1,13 @@
 package com.treeengineering.login.ui
 
-import com.treeengineering.core.dispatcher.Dispatcher
 import io.reactivex.Flowable
-import io.reactivex.processors.BehaviorProcessor
-import io.reactivex.processors.FlowableProcessor
 
-class LoginDispatcher : Dispatcher() {
+interface LoginDispatcher {
+    fun dispatch(action: LoginAction.OAuthBrowserRequestAction)
 
-    private val dispatcherOAuth: FlowableProcessor<LoginAction.OAuthBrowserRequestAction>
-            = BehaviorProcessor.create<LoginAction.OAuthBrowserRequestAction>().toSerialized()
+    val onOAuthBrowserRequest: Flowable<LoginAction.OAuthBrowserRequestAction>
 
-    val onOAuthBrowserRequest: Flowable<LoginAction.OAuthBrowserRequestAction> = dispatcherOAuth
+    fun dispatch(action: LoginAction.ProgressAction)
 
-    fun dispatch(action: LoginAction.OAuthBrowserRequestAction) {
-        dispatcherOAuth.onNext(action)
-    }
+    val onProgress: Flowable<LoginAction.ProgressAction>
 }
