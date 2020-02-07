@@ -7,7 +7,7 @@ class LoginActionCreatorImpl(
     private val repository: LoginRepository
 ) : LoginActionCreator {
 
-    override fun login()  {
+    override fun login() {
         if (false) {
             // 認証済み
 
