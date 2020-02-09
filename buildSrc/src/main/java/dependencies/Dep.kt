@@ -11,6 +11,28 @@ object Dep {
         val coreKtx = "androidx.core:core-ktx:1.1.0"
         val constraint = "androidx.constraintlayout:constraintlayout:2.0.0-beta2"
 
+        object Navigation {
+            val version = "2.1.0"
+            val navFragment = "androidx.navigation:navigation-fragment:$version"
+            val navUi = "androidx.navigation:navigation-ui:$version"
+            val navFragmentKtx = "androidx.navigation:navigation-fragment-ktx:$version"
+            val navUiKtx = "androidx.navigation:navigation-ui-ktx:$version"
+        }
+    }
+
+    object Arch {
+        object Lifecycle {
+            val version = "1.1.1"
+            val runtime = "android.arch.lifecycle:runtime:$version"
+            val extensions = "android.arch.lifecycle:extensions:$version"
+            val reactivestreams = "android.arch.lifecycle:reactivestreams:$version"
+        }
+    }
+
+    object ReactiveX {
+        val rxJava = "io.reactivex.rxjava2:rxjava:2.1.6"
+        val rxAndroid = "io.reactivex.rxjava2:rxandroid:2.0.1"
+        val rxKotlin = "io.reactivex.rxjava2:rxkotlin:2.4.0"
     }
 
     object Kotlin {
@@ -40,7 +62,7 @@ object Dep {
     }
 
     object Test {
-        val jnit = "junit:junit:4.12"
+        val junit = "junit:junit:4.12"
         val androidJunitKtx = "androidx.test.ext:junit-ktx:1.1.2-alpha02"
         val espressoCore = "androidx.test.espresso:espresso-core:3.3.0-alpha02"
     }

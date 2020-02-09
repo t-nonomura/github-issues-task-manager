@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+android.dataBinding.enabled = true
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -17,26 +19,48 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    Properties properties = new Properties()
+    try {
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    } catch (Exception ex) {
+        throw new GradleException("can not load *.properties");
+    }
+
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // 環境変数を参照する
+            defaultConfig {
+                manifestPlaceholders = [clientId    : properties.getProperty("TMGI_GITHUB_OAUTH_CLIENT_ID"),
+                                        clientSecret: properties.getProperty("TMGI_GITHUB_OAUTH_CLIENT_SECRET")]
+            }
         }
     }
 }
 
 dependencies {
+    implementation project(':core')
     implementation project(':data:api')
+    implementation project(':data:repository')
+    implementation project(':feature:login')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.coreKtx
     implementation Dep.AndroidX.constraint
 
+    implementation Dep.AndroidX.Navigation.navFragment
+    implementation Dep.AndroidX.Navigation.navFragmentKtx
+    implementation Dep.AndroidX.Navigation.navUi
+    implementation Dep.AndroidX.Navigation.navUiKtx
+
     implementation Dep.Kotlin.stdLib
 
     implementation Dep.Google.material
 
-    testImplementation Dep.Test.jnit
+    testImplementation Dep.Test.junit
     androidTestImplementation Dep.Test.androidJunitKtx
     androidTestImplementation Dep.Test.espressoCore
 

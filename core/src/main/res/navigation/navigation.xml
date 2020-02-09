@@ -1,0 +1,11 @@
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/graph_main"
+    app:startDestination="@id/login"
+    >
+    <fragment
+        android:id="@+id/login"
+        android:name="com.treeengineering.login.ui.LoginFragment">
+    </fragment>
+</navigation>

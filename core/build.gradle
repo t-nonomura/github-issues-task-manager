@@ -1,0 +1,68 @@
+import dependencies.Dep
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Dep.Kotlin.stdLib
+    implementation Dep.AndroidX.appCompat
+    implementation Dep.AndroidX.coreKtx
+    api Dep.AndroidX.constraint
+    api Dep.Kotlin.Coroutines.core
+
+    implementation Dep.Arch.Lifecycle.runtime
+    implementation Dep.Arch.Lifecycle.extensions
+    implementation Dep.Arch.Lifecycle.reactivestreams
+
+    implementation Dep.AndroidX.Navigation.navFragment
+    implementation Dep.AndroidX.Navigation.navFragmentKtx
+    implementation Dep.AndroidX.Navigation.navUi
+    implementation Dep.AndroidX.Navigation.navUiKtx
+
+    testImplementation Dep.Test.junit
+    androidTestImplementation Dep.Test.androidJunitKtx
+    androidTestImplementation Dep.Test.espressoCore
+
+    implementation Dep.Koin.koinCore
+    implementation Dep.Koin.koinCoreExt
+    implementation Dep.Koin.koinAndroidScope
+    implementation Dep.Koin.koinAndroidViewModel
+    implementation Dep.Koin.koinAndroidExt
+    testImplementation Dep.Koin.koinTest
+
+    api Dep.Google.material
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        freeCompilerArgs = [
+                '-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi',
+                '-Xuse-experimental=kotlinx.coroutines.ObsoleteCoroutinesApi'
+        ]
+    }
+}

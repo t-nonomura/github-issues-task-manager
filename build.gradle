@@ -2,7 +2,6 @@
 import dependencies.Dep
 
 buildscript {
-
     repositories {
         google()
         jcenter()

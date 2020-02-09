@@ -33,7 +33,7 @@ dependencies {
 
     implementation Dep.Kotlin.stdLib
 
-    testImplementation Dep.Test.jnit
+    testImplementation Dep.Test.junit
 
     implementation Dep.Square.okHttp3
     implementation Dep.Square.Retrofit.retrofit
