@@ -19,10 +19,24 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    Properties properties = new Properties()
+    try {
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    } catch (Exception ex) {
+        throw new GradleException("can not load *.properties");
+    }
+
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            // 環境変数を参照する
+            defaultConfig {
+                manifestPlaceholders = [clientId    : properties.getProperty("TMGI_GITHUB_OAUTH_CLIENT_ID"),
+                                        clientSecret: properties.getProperty("TMGI_GITHUB_OAUTH_CLIENT_SECRET")]
+            }
         }
     }
 }

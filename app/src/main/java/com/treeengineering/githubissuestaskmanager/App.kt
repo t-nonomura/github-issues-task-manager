@@ -8,7 +8,6 @@ import com.treeengineering.login.di.loginModule
 import com.treeengineering.repository.di.repositoryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
-import org.koin.dsl.module
 
 class App : Application() {
     override fun onCreate() {
@@ -20,12 +19,16 @@ class App : Application() {
     private fun setupDI() {
         startKoin {
             androidContext(this@App)
-            module { (listOf(
-                appModule,
-                coreModule,
-                apiModule,
-                repositoryModule,
-                loginModule)) }
+            modules(
+                listOf(
+                    appModule,
+                    coreModule,
+                    apiModule,
+                    repositoryModule,
+                    loginModule
+                )
+            )
+
         }
     }
 }

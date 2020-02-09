@@ -1,5 +1,7 @@
 package com.treeengineering.githubissuestaskmanager.di
 
-val appModule = {
+import org.koin.dsl.module
 
+val appModule = module {
+    // nop.
 }

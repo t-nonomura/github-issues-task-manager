@@ -1,18 +1,18 @@
 package com.treeengineering.login.ui
 
-import androidx.lifecycle.LiveData
+import com.treeengineering.core.dispatcher.Dispatcher
 import com.treeengineering.core.ext.toLiveData
 import com.treeengineering.core.store.Store
-import io.reactivex.android.schedulers.AndroidSchedulers
+import kotlinx.coroutines.channels.map
 
-class LoginStore(dispatcher: LoginDispatcher) : Store() {
-    val oAuthBrowserRequest: LiveData<Boolean> = dispatcher.onOAuthBrowserRequest
+class LoginStore(dispatcher: Dispatcher) : Store() {
+    val oAuthBrowserRequest = dispatcher
+        .subscribe<LoginAction.OAuthBrowserRequestAction>()
         .map { it.request }
-        .observeOn(AndroidSchedulers.mainThread())
-        .toLiveData()
+        .toLiveData(this)
 
-    val progress: LiveData<Boolean> = dispatcher.onProgress
+    val progress = dispatcher
+        .subscribe<LoginAction.ProgressAction>()
         .map { it.visible }
-        .observeOn(AndroidSchedulers.mainThread())
-        .toLiveData()
+        .toLiveData(this)
 }
