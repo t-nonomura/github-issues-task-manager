@@ -18,6 +18,13 @@ object Dep {
             val navFragmentKtx = "androidx.navigation:navigation-fragment-ktx:$version"
             val navUiKtx = "androidx.navigation:navigation-ui-ktx:$version"
         }
+
+        object Room {
+            val version = "2.2.3"
+            val roomRuntime = "androidx.room:room-runtime:$version"
+            val roomCompiler = "androidx.room:room-compiler:$version"
+            val roomKtx = "androidx.room:room-ktx:$version"
+        }
     }
 
     object Arch {
