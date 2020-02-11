@@ -50,4 +50,10 @@ dependencies {
     implementation Dep.ReactiveX.rxJava
     implementation Dep.ReactiveX.rxAndroid
     implementation Dep.ReactiveX.rxKotlin
+
+    implementation Dep.AndroidX.Navigation.navFragment
+    implementation Dep.AndroidX.Navigation.navFragmentKtx
+    implementation Dep.AndroidX.Navigation.navUi
+    implementation Dep.AndroidX.Navigation.navUiKtx
+
 }

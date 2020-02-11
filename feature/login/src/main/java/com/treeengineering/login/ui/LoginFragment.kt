@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.navArgs
 import com.treeengineering.core.ext.ManifestUtil
 import com.treeengineering.login.R
 import com.treeengineering.login.databinding.FragmentLoginBinding
@@ -16,6 +17,7 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {
+    private val args: LoginFragmentArgs by navArgs()
     private val loginStore: LoginStore by viewModel()
     private val loginActionCreator: LoginActionCreator by inject()
     private val manifestUtil: ManifestUtil by inject()
@@ -40,7 +42,7 @@ class LoginFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         observe()
-        loginActionCreator.login()
+        loginActionCreator.login(args.authUri)
     }
 
     private fun observe() {

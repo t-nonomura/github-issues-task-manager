@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.treeengineering.githubissuestaskmanager.R
+import com.treeengineering.login.ui.LoginFragmentArgs
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,9 +22,11 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
 
+        val args = LoginFragmentArgs(intent.dataString)
         findNavController(R.id.root_nav_host_fragment)
-            .setGraph(R.navigation.navigation, intent.extras)
+            .setGraph(R.navigation.navigation, args.toBundle())
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
 android.dataBinding.enabled = true
 
 android {
@@ -38,6 +40,15 @@ android {
                                         clientSecret: properties.getProperty("TMGI_GITHUB_OAUTH_CLIENT_SECRET")]
             }
         }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
