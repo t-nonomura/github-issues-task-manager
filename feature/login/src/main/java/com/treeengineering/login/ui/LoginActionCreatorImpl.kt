@@ -1,6 +1,5 @@
 package com.treeengineering.login.ui
 
-import android.os.Bundle
 import android.view.View
 import com.treeengineering.core.dispatcher.Dispatcher
 import com.treeengineering.repository.LoginRepository
@@ -13,14 +12,14 @@ class LoginActionCreatorImpl(
     private val repository: LoginRepository
 ) : LoginActionCreator {
 
-    override fun login(bundle: Bundle?) {
+    override fun login(authUri: String?) {
         CoroutineScope(Dispatchers.Main).launch {
             dispatcher.dispatch(LoginAction.ProgressAction(View.VISIBLE))
-            if (bundle == null) {
+            if (authUri == null) {
                 // 未認証
                 dispatcher.dispatch(LoginAction.OAuthBrowserRequestAction(request = true))
             } else {
-
+                // 認証済み
             }
             dispatcher.dispatch(LoginAction.ProgressAction(View.GONE))
         }
