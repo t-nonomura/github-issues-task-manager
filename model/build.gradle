@@ -3,10 +3,10 @@ import dependencies.Dep
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
-
 
     defaultConfig {
         minSdkVersion 21
@@ -24,27 +24,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
-    implementation project(':model')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Dep.Kotlin.stdLib
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.coreKtx
-
-    implementation Dep.Kotlin.stdLib
-
-    testImplementation Dep.Test.junit
-
-    implementation Dep.Square.okHttp3
-    implementation Dep.Square.Retrofit.retrofit
-    implementation Dep.Square.Retrofit.retrofitConverterGson
-    implementation Dep.Square.Retrofit.retrofitRxJava
-
-    implementation Dep.Koin.koinCore
-    implementation Dep.Koin.koinCoreExt
-    implementation Dep.Koin.koinAndroidScope
-    implementation Dep.Koin.koinAndroidViewModel
-    implementation Dep.Koin.koinAndroidExt
-    testImplementation Dep.Koin.koinTest
 }

@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
-import com.treeengineering.core.ext.ManifestUtil
 import com.treeengineering.login.R
 import com.treeengineering.login.databinding.FragmentLoginBinding
 import org.koin.android.ext.android.inject
@@ -20,7 +19,6 @@ class LoginFragment : Fragment() {
     private val args: LoginFragmentArgs by navArgs()
     private val loginStore: LoginStore by viewModel()
     private val loginActionCreator: LoginActionCreator by inject()
-    private val manifestUtil: ManifestUtil by inject()
     private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
@@ -46,8 +44,13 @@ class LoginFragment : Fragment() {
     }
 
     private fun observe() {
-        loginStore.oAuthBrowserRequest.observe(this, Observer {
-            if (it) requestOAuthBrowser()
+
+        loginStore.codeRequest.observe(this, Observer {
+            requestCode(it)
+        })
+
+        loginStore.accessTokenCheck.observe(this, Observer {
+            if (it) checkAccessToken()
         })
 
         loginStore.progress.observe(this, Observer { visibility ->
@@ -55,18 +58,12 @@ class LoginFragment : Fragment() {
         })
     }
 
-    private fun requestOAuthBrowser() {
-        val clientId = manifestUtil.getClientId()
-        val clientSecret = manifestUtil.getClientSecret()
-        if (clientId.isNullOrEmpty() || clientSecret.isNullOrEmpty()) return
-
-        val uri = Uri.parse("https://github.com/login/oauth/authorize")
-            .buildUpon()
-            .appendQueryParameter("client_id", clientId)
-            .appendQueryParameter("client_secret", clientSecret)
-            .appendQueryParameter("scope", "repo")
-            .build()
+    private fun requestCode(uri: Uri) {
         val intent = Intent(Intent.ACTION_VIEW, uri)
         startActivity(intent)
+    }
+
+    private fun checkAccessToken() {
+        loginActionCreator.checkAccessToken()
     }
 }

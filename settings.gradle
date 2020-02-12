@@ -1,1 +1,2 @@
 include ':app', ':data:api', ':data:repository', ':data:db', ':feature:login', ':core'
+include ':model'

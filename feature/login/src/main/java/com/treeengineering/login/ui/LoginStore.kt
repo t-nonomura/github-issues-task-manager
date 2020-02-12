@@ -6,9 +6,14 @@ import com.treeengineering.core.store.Store
 import kotlinx.coroutines.channels.map
 
 class LoginStore(dispatcher: Dispatcher) : Store() {
-    val oAuthBrowserRequest = dispatcher
-        .subscribe<LoginAction.OAuthBrowserRequestAction>()
-        .map { it.request }
+    val codeRequest = dispatcher
+        .subscribe<LoginAction.CodeRequestAction>()
+        .map { it.uri }
+        .toLiveData(this)
+
+    val accessTokenCheck = dispatcher
+        .subscribe<LoginAction.CheckAccessTokenAction>()
+        .map { it.check }
         .toLiveData(this)
 
     val progress = dispatcher

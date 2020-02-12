@@ -6,22 +6,23 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object ApiClient {
-    fun getService(): ApiService {
+
+object AuthClient {
+    fun getService(): AuthService {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
 
         val gson = GsonBuilder()
             .setLenient()
             .create()
-        
+
         val httpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.github.com/")
+            .baseUrl("https://github.com/")
             .client(httpClient)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
-        return retrofit.create(ApiService::class.java)
+        return retrofit.create(AuthService::class.java)
     }
 }
