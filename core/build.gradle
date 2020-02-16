@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+    implementation project(':data:db')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Dep.Kotlin.stdLib
     implementation Dep.AndroidX.appCompat

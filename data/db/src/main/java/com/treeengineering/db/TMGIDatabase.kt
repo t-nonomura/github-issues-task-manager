@@ -3,6 +3,7 @@ package com.treeengineering.db
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.treeengineering.db.dao.AccessTokenDao
 import com.treeengineering.db.entity.AccessTokenEntity
 
 
@@ -12,5 +13,5 @@ import com.treeengineering.db.entity.AccessTokenEntity
 )
 @TypeConverters(TMGIDatabaseConverter::class)
 abstract class TMGIDatabase : RoomDatabase() {
-
+    abstract fun accessTokenDao(): AccessTokenDao
 }

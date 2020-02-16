@@ -1,14 +1,21 @@
 package com.treeengineering.repository.impl
 
 import com.treeengineering.api.AuthService
+import com.treeengineering.db.datastore.AccessTokenDataStore
+import com.treeengineering.db.entity.AccessTokenEntity
 import com.treeengineering.model.request.AccessTokenRequest
 import com.treeengineering.model.response.AccessTokenResponse
 import com.treeengineering.repository.LoginRepository
 
 class LoginRepositoryImpl(
-    private val api: AuthService
+    private val api: AuthService,
+    private val localDataStore: AccessTokenDataStore
 ) : LoginRepository {
-    override suspend fun accessToken(param: com.treeengineering.model.request.AccessTokenRequest): com.treeengineering.model.response.AccessTokenResponse {
-        return api.accessToken(param)
+    override suspend fun accessToken(request: AccessTokenRequest): AccessTokenResponse {
+        return api.accessToken(request)
+    }
+
+    override suspend fun saveAccessToken(accessToken: AccessTokenEntity) {
+        localDataStore.save(accessToken)
     }
 }

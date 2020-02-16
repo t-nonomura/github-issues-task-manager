@@ -1,10 +1,10 @@
 package com.treeengineering.login.ui
 
 import android.net.Uri
-import android.util.Log
 import android.view.View
 import com.treeengineering.core.dispatcher.Dispatcher
 import com.treeengineering.core.ext.ManifestUtil
+import com.treeengineering.db.entity.AccessTokenEntity
 import com.treeengineering.model.request.AccessTokenRequest
 import com.treeengineering.repository.LoginRepository
 import kotlinx.coroutines.CoroutineScope
@@ -36,7 +36,7 @@ class LoginActionCreatorImpl(
                         code = code
                     )
                 )
-                Log.d("nono", "response")
+                repository.saveAccessToken(AccessTokenEntity(response.access_token))
             }
             dispatcher.dispatch(LoginAction.ProgressAction(View.GONE))
         }
