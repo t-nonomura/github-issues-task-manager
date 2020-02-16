@@ -26,11 +26,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
     implementation project(':core')
     implementation project(':data:repository')
+    implementation project(':data:db')
+    implementation project(':model')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Dep.Kotlin.stdLib
     implementation Dep.AndroidX.appCompat
@@ -50,4 +61,9 @@ dependencies {
     implementation Dep.ReactiveX.rxJava
     implementation Dep.ReactiveX.rxAndroid
     implementation Dep.ReactiveX.rxKotlin
+
+    implementation Dep.AndroidX.Navigation.navFragment
+    implementation Dep.AndroidX.Navigation.navFragmentKtx
+    implementation Dep.AndroidX.Navigation.navUi
+    implementation Dep.AndroidX.Navigation.navUiKtx
 }

@@ -5,5 +5,5 @@ import com.treeengineering.repository.impl.LoginRepositoryImpl
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    factory { LoginRepositoryImpl(get()) as LoginRepository }
+    factory { LoginRepositoryImpl(get(), get()) as LoginRepository }
 }

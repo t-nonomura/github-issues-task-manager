@@ -1,4 +1,4 @@
-package com.treeengineering.api.response
+package com.treeengineering.model.response
 
 data class Repo(
     val id: Int,

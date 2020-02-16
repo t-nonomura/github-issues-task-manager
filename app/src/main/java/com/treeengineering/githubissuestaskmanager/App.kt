@@ -3,6 +3,7 @@ package com.treeengineering.githubissuestaskmanager
 import android.app.Application
 import com.treeengineering.api.di.apiModule
 import com.treeengineering.core.di.coreModule
+import com.treeengineering.di.dbModule
 import com.treeengineering.githubissuestaskmanager.di.appModule
 import com.treeengineering.login.di.loginModule
 import com.treeengineering.repository.di.repositoryModule
@@ -25,10 +26,10 @@ class App : Application() {
                     coreModule,
                     apiModule,
                     repositoryModule,
+                    dbModule,
                     loginModule
                 )
             )
-
         }
     }
 }

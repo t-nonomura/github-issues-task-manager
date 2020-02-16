@@ -1,7 +1,11 @@
 package com.treeengineering.repository
 
-import com.treeengineering.api.request.LoginRequest
+import com.treeengineering.db.entity.AccessTokenEntity
+import com.treeengineering.model.request.AccessTokenRequest
+import com.treeengineering.model.response.AccessTokenResponse
 
 interface LoginRepository {
-    suspend fun loginGithubOAuth(param: LoginRequest)
+    suspend fun accessToken(request: AccessTokenRequest): AccessTokenResponse
+
+    suspend fun saveAccessToken(accessToken: AccessTokenEntity)
 }

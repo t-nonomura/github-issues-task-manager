@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
 android.dataBinding.enabled = true
 
 android {
@@ -39,12 +41,22 @@ android {
             }
         }
     }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
     implementation project(':core')
     implementation project(':data:api')
     implementation project(':data:repository')
+    implementation project(':data:db')
     implementation project(':feature:login')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Dep.AndroidX.appCompat

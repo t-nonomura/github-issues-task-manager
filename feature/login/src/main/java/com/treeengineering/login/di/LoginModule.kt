@@ -7,6 +7,6 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val loginModule = module {
-    factory { LoginActionCreatorImpl(get(), get()) as LoginActionCreator }
+    factory { LoginActionCreatorImpl(get(), get(), get()) as LoginActionCreator }
     viewModel { LoginStore(get()) }
 }

@@ -3,6 +3,7 @@ import dependencies.Dep
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -25,9 +26,18 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
+    implementation project(':data:db')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Dep.Kotlin.stdLib
     implementation Dep.AndroidX.appCompat

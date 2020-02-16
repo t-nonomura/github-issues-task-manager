@@ -1,5 +1,6 @@
 package com.treeengineering.api
 
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -10,6 +11,10 @@ object ApiClient {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BODY
 
+        val gson = GsonBuilder()
+            .setLenient()
+            .create()
+        
         val httpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
         val retrofit = Retrofit.Builder()
             .baseUrl("https://api.github.com/")
