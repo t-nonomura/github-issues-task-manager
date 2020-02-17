@@ -10,10 +10,10 @@
             app:argType="string"
             app:nullable="true" />
         <action
-            android:id="@+id/action_login_to_repository_list"
-            app:destination="@+id/repository_list" />
+            android:id="@+id/action_login_to_repo_list"
+            app:destination="@+id/repo_list" />
     </fragment>
     <fragment
-        android:id="@+id/repository_list"
-        android:name="com.treeengineering.repositorylist.ui.RepositoryListFragment"></fragment>
+        android:id="@+id/repo_list"
+        android:name="com.treeengineering.repolist.ui.RepoListFragment"></fragment>
 </navigation>

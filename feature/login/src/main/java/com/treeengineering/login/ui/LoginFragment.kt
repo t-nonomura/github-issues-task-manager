@@ -51,7 +51,7 @@ class LoginFragment : Fragment() {
         })
 
         loginStore.accessTokenSaved.observe(this, Observer {
-            if (it) startRepositoryListFragment()
+            if (it) startRepoListFragment()
         })
 
         loginStore.progress.observe(this, Observer { visibility ->
@@ -64,7 +64,7 @@ class LoginFragment : Fragment() {
         startActivity(intent)
     }
 
-    private fun startRepositoryListFragment() {
-        findNavController().navigate(R.id.repository_list)
+    private fun startRepoListFragment() {
+        findNavController().navigate(R.id.repo_list)
     }
 }

@@ -58,7 +58,7 @@ dependencies {
     implementation project(':data:repository')
     implementation project(':data:db')
     implementation project(':feature:login')
-    implementation project(':feature:repositorylist')
+    implementation project(':feature:repolist')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.coreKtx
