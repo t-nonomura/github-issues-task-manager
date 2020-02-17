@@ -85,4 +85,10 @@ object Dep {
             val retrofitRxJava = "com.squareup.retrofit2:adapter-rxjava2:$version"
         }
     }
+
+    object Groupie {
+        val version = "2.7.0"
+        val groupie = "com.xwray:groupie:$version"
+        val groupieDataBinding = "com.xwray:groupie-databinding:$version"
+    }
 }

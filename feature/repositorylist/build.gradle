@@ -57,4 +57,7 @@ dependencies {
     implementation Dep.AndroidX.Navigation.navFragmentKtx
     implementation Dep.AndroidX.Navigation.navUi
     implementation Dep.AndroidX.Navigation.navUiKtx
+
+    implementation Dep.Groupie.groupie
+    implementation Dep.Groupie.gropieDataBinding
 }
