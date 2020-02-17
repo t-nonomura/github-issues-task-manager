@@ -11,7 +11,7 @@ class LoginRepositoryImpl(
     private val api: AuthService,
     private val localDataStore: AccessTokenDataStore
 ) : LoginRepository {
-    override suspend fun accessToken(request: AccessTokenRequest): AccessTokenResponse {
+    override suspend fun requestAccessToken(request: AccessTokenRequest): AccessTokenResponse {
         return api.accessToken(request)
     }
 

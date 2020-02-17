@@ -37,7 +37,7 @@ class LoginActionCreatorImpl(
             } else {
                 // 認証済み
                 val code = Uri.parse(authUri).getQueryParameter("code").toString()
-                val response = repository.accessToken(
+                val response = repository.requestAccessToken(
                     AccessTokenRequest(
                         client_id = manifestUtil.getClientId() ?: "",
                         client_secret = manifestUtil.getClientSecret() ?: "",

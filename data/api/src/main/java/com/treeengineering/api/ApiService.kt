@@ -10,5 +10,5 @@ interface ApiService {
      * @see https://developer.github.com/v3/repos/#list-user-repositories
      */
     @GET("users/{username}/repos")
-    suspend fun getUsersRepositories(@Path("user") user: String): List<Repo>
+    suspend fun getUsersRepos(@Path("user") user: String): List<Repo>
 }
