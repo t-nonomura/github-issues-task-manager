@@ -18,4 +18,8 @@ class LoginRepositoryImpl(
     override suspend fun saveAccessToken(accessToken: AccessTokenEntity) {
         localDataStore.save(accessToken)
     }
+
+    override suspend fun getAccessToken(): String {
+        return localDataStore.getAccessToken()
+    }
 }

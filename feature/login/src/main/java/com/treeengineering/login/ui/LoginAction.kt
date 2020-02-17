@@ -6,7 +6,7 @@ import com.treeengineering.core.action.Action
 sealed class LoginAction : Action() {
     data class CodeRequestAction(val uri: Uri) : LoginAction()
 
-    data class CheckAccessTokenAction(val check: Boolean) : LoginAction()
+    data class SavedAccessTokenAction(val saved: Boolean) : LoginAction()
 
     data class ProgressAction(val visible: Int) : LoginAction()
 }

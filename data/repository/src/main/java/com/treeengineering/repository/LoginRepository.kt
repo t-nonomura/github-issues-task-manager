@@ -8,4 +8,6 @@ interface LoginRepository {
     suspend fun accessToken(request: AccessTokenRequest): AccessTokenResponse
 
     suspend fun saveAccessToken(accessToken: AccessTokenEntity)
+
+    suspend fun getAccessToken(): String
 }

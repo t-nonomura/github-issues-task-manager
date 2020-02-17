@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/data/repository" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/login" />
+            <option value="$PROJECT_DIR$/feature/repositorylist" />
             <option value="$PROJECT_DIR$/model" />
           </set>
         </option>

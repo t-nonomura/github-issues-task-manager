@@ -20,6 +20,14 @@ class LoginActionCreatorImpl(
     override fun login(authUri: String?) {
         CoroutineScope(Dispatchers.Main).launch {
             dispatcher.dispatch(LoginAction.ProgressAction(View.VISIBLE))
+            val accessToken = repository.getAccessToken()
+            if (accessToken.isNotEmpty()) {
+                // 既にAccessTokenを保存済み
+                dispatcher.dispatch(LoginAction.SavedAccessTokenAction(true))
+                dispatcher.dispatch(LoginAction.ProgressAction(View.GONE))
+                return@launch
+            }
+
             if (authUri == null) {
                 // 未認証
                 val uriRequestCode = buildUriForRequestCode()

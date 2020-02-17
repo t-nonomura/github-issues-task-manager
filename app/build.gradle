@@ -46,7 +46,7 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
-    
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -58,6 +58,7 @@ dependencies {
     implementation project(':data:repository')
     implementation project(':data:db')
     implementation project(':feature:login')
+    implementation project(':feature:repositorylist')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.coreKtx

@@ -9,5 +9,11 @@
             android:name="authUri"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_login_to_repository_list"
+            app:destination="@+id/repository_list" />
     </fragment>
+    <fragment
+        android:id="@+id/repository_list"
+        android:name="com.treeengineering.repositorylist.ui.RepositoryListFragment"></fragment>
 </navigation>
