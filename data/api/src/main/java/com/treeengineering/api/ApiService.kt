@@ -1,6 +1,7 @@
 package com.treeengineering.api
 
 import com.treeengineering.model.response.Repo
+import com.treeengineering.model.response.User
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -11,4 +12,10 @@ interface ApiService {
      */
     @GET("users/{username}/repos")
     suspend fun getUsersRepos(@Path("user") user: String): List<Repo>
+
+    /**
+     * 認証済みのユーザ情報
+     */
+    @GET("user")
+    suspend fun getUser(): User
 }
