@@ -3,6 +3,7 @@ package com.treeengineering.api
 import com.treeengineering.model.response.Repo
 import com.treeengineering.model.response.User
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.Path
 
 interface ApiService {
@@ -17,5 +18,5 @@ interface ApiService {
      * 認証済みのユーザ情報
      */
     @GET("user")
-    suspend fun getUser(): User
+    suspend fun getUser(@Header("Authorization") accessToken: String): User
 }
