@@ -20,4 +20,9 @@ class LoginStore(dispatcher: Dispatcher) : Store() {
         .subscribe<LoginAction.ProgressAction>()
         .map { it.visible }
         .toLiveData(this)
+    
+    val userSaved = dispatcher
+        .subscribe<LoginAction.SavedUserAction>()
+        .map { it.saved }
+        .toLiveData(this)
 }

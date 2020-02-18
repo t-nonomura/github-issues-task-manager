@@ -9,4 +9,6 @@ sealed class LoginAction : Action() {
     data class SavedAccessTokenAction(val saved: Boolean) : LoginAction()
 
     data class ProgressAction(val visible: Int) : LoginAction()
+
+    data class SavedUserAction(val saved: Boolean) : LoginAction()
 }

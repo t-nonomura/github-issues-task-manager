@@ -51,11 +51,15 @@ class LoginFragment : Fragment() {
         })
 
         loginStore.accessTokenSaved.observe(this, Observer {
-            if (it) startRepoListFragment()
+            if (it) loginActionCreator.fetchUser()
         })
 
         loginStore.progress.observe(this, Observer { visibility ->
             binding.loginProgress.visibility = visibility
+        })
+
+        loginStore.userSaved.observe(this, Observer {
+            if (it) startRepoListFragment()
         })
     }
 

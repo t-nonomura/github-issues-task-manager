@@ -7,6 +7,6 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val repoListModule = module {
-    factory { RepoListActionCreatorImpl() as RepoListActionCreator }
+    factory { RepoListActionCreatorImpl(get(), get()) as RepoListActionCreator }
     viewModel { RepoListStore() }
 }
