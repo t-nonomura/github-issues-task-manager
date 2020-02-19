@@ -13,8 +13,8 @@ class UserRepositoryImpl(
     private val userDataStore: UserDataStore
 ) : UserRepository {
     override suspend fun getUser(): User {
-        val accessToken = accessTokenDataStore.getAccessToken()
-        return api.getUser(accessToken)
+        val authorization = accessTokenDataStore.getAuthorizationHeader()
+        return api.getUser(authorization)
     }
 
     override suspend fun saveUser(userEntity: UserEntity) {

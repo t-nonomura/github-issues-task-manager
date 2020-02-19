@@ -55,17 +55,20 @@ class LoginActionCreatorImpl(
 
     override fun fetchUser() {
         GlobalScope.launch(Dispatchers.Main) {
-            val user = userRepository.getUser()
-            userRepository.saveUser(
-                UserEntity(
-                    id = user.id,
-                    login = user.login,
-                    html_url = user.html_url,
-                    name = user.name,
-                    bio = user.name,
-                    avatar_url = user.name
+            val userName = userRepository.getUserName()
+            if (userName.isEmpty()) {
+                val user = userRepository.getUser()
+                userRepository.saveUser(
+                    UserEntity(
+                        id = user.id,
+                        login = user.login,
+                        html_url = user.html_url,
+                        name = user.name,
+                        bio = user.name,
+                        avatar_url = user.name
+                    )
                 )
-            )
+            }
             dispatcher.dispatch(LoginAction.SavedUserAction(true))
         }
     }

@@ -12,4 +12,9 @@ class AccessTokenDataStoreImpl(db: TMGIDatabase) : AccessTokenDataStore {
     override suspend fun getAccessToken(): String {
         return dao.getAccessToken() ?: ""
     }
+
+    override suspend fun getAuthorizationHeader(): String {
+        val accessToken = getAccessToken()
+        return "Bearer $accessToken"
+    }
 }

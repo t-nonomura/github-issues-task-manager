@@ -18,5 +18,5 @@ interface ApiService {
      * 認証済みのユーザ情報
      */
     @GET("user")
-    suspend fun getUser(@Header("Authorization") accessToken: String): User
+    suspend fun getUser(@Header("Authorization") authorization: String): User
 }
