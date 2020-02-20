@@ -48,6 +48,7 @@ class LoginActionCreatorImpl(
                     )
                 )
                 loginRepository.saveAccessToken(AccessTokenEntity(response.access_token))
+                dispatcher.dispatch(LoginAction.SavedAccessTokenAction(true))
             }
             dispatcher.dispatch(LoginAction.ProgressAction(View.GONE))
         }
