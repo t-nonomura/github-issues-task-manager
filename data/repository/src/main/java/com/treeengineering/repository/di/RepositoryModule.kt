@@ -10,6 +10,6 @@ import org.koin.dsl.module
 
 val repositoryModule = module {
     factory { LoginRepositoryImpl(get(), get()) as LoginRepository }
-    factory { RepoRepositoryImpl(get()) as RepoRepository }
+    factory { RepoRepositoryImpl(get(), get()) as RepoRepository }
     factory { UserRepositoryImpl(get(), get(), get()) as UserRepository }
 }
