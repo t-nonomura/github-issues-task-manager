@@ -61,7 +61,7 @@ class LoginActionCreatorImpl(
                 val user = userRepository.getUser()
                 userRepository.saveUser(
                     UserEntity(
-                        id = user.id,
+                        0,
                         login = user.login,
                         html_url = user.html_url,
                         name = user.name,
