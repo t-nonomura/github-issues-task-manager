@@ -6,5 +6,6 @@ data class Repo(
     val private: Boolean,
     val description: String,
     val has_issues: Boolean,
-    val has_projects: Boolean
+    val has_projects: Boolean,
+    val language: String
 )
