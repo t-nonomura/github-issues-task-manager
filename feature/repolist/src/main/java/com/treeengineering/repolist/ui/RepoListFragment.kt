@@ -11,7 +11,6 @@ import com.treeengineering.repolist.R
 import com.treeengineering.repolist.databinding.FragmentRepoListBinding
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.GroupieViewHolder
-import kotlinx.android.synthetic.main.fragment_repo_list.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -38,12 +37,12 @@ class RepoListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         observe()
-        setupRecyclerView()
+        repoListActionCreator.getRepoList()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        repoListActionCreator.getRepoList()
+        setupRecyclerView()
     }
 
     private fun observe() {
@@ -59,6 +58,6 @@ class RepoListFragment : Fragment() {
 
     private fun setupRecyclerView() {
         adapter = GroupAdapter()
-        repo_list.adapter = adapter
+        binding.repoList.adapter = adapter
     }
 }
