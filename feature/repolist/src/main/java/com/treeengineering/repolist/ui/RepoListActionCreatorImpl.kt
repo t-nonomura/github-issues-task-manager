@@ -13,8 +13,10 @@ class RepoListActionCreatorImpl(
 ) : RepoListActionCreator {
     override fun getRepoList() {
         GlobalScope.launch(Dispatchers.Main) {
+            dispatcher.dispatch(RepoListAction.ProgressAction(View.VISIBLE))
             val repoList = repoRepository.getRepoList()
             dispatcher.dispatch(RepoListAction.RepoListGetAction(repoList))
+            dispatcher.dispatch(RepoListAction.ProgressAction(View.GONE))
         }
     }
 }

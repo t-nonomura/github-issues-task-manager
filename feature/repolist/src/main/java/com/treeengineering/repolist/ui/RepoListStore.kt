@@ -10,4 +10,9 @@ class RepoListStore(dispatcher: Dispatcher) : Store() {
         .subscribe<RepoListAction.RepoListGetAction>()
         .map { it.repoList }
         .toLiveData(this)
+
+    val progress = dispatcher
+        .subscribe<RepoListAction.ProgressAction>()
+        .map { it.visible }
+        .toLiveData(this)
 }
