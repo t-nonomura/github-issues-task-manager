@@ -48,10 +48,7 @@ class RepoListFragment : Fragment() {
 
     private fun observe() {
         repoListStore.repoList.observe(this, Observer {
-            val repoListItem = mutableListOf<RepoListItem>()
-            it.map { repo ->
-                repoListItem.add(RepoListItem(repo))
-            }
+            val repoListItem = it.map { repo -> RepoListItem(repo) }
             adapter.update(repoListItem)
         })
 
