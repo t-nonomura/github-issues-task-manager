@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.treeengineering.login.R
 import com.treeengineering.login.databinding.FragmentLoginBinding
@@ -49,12 +50,16 @@ class LoginFragment : Fragment() {
             requestCode(it)
         })
 
-        loginStore.accessTokenCheck.observe(this, Observer {
-            if (it) checkAccessToken()
+        loginStore.accessTokenSaved.observe(this, Observer {
+            if (it) loginActionCreator.fetchUser()
         })
 
         loginStore.progress.observe(this, Observer { visibility ->
             binding.loginProgress.visibility = visibility
+        })
+
+        loginStore.userSaved.observe(this, Observer {
+            if (it) startRepoListFragment()
         })
     }
 
@@ -63,7 +68,7 @@ class LoginFragment : Fragment() {
         startActivity(intent)
     }
 
-    private fun checkAccessToken() {
-        loginActionCreator.checkAccessToken()
+    private fun startRepoListFragment() {
+        findNavController().navigate(R.id.repo_list)
     }
 }

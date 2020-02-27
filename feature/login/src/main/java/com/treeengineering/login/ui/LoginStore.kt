@@ -11,13 +11,18 @@ class LoginStore(dispatcher: Dispatcher) : Store() {
         .map { it.uri }
         .toLiveData(this)
 
-    val accessTokenCheck = dispatcher
-        .subscribe<LoginAction.CheckAccessTokenAction>()
-        .map { it.check }
+    val accessTokenSaved = dispatcher
+        .subscribe<LoginAction.SavedAccessTokenAction>()
+        .map { it.saved }
         .toLiveData(this)
 
     val progress = dispatcher
         .subscribe<LoginAction.ProgressAction>()
         .map { it.visible }
+        .toLiveData(this)
+    
+    val userSaved = dispatcher
+        .subscribe<LoginAction.SavedUserAction>()
+        .map { it.saved }
         .toLiveData(this)
 }

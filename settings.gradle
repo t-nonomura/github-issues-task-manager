@@ -1,2 +1,3 @@
-include ':app', ':data:api', ':data:repository', ':data:db', ':feature:login', ':core'
-include ':model'
+include ':app', ':core', ':model'
+include ':data:api', ':data:repository', ':data:db'
+include ':feature:login', ':feature:repolist'

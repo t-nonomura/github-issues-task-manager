@@ -1,0 +1,72 @@
+import dependencies.Dep
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android.dataBinding.enabled = true
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':data:repository')
+    implementation project(':data:db')
+    implementation project(':model')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Dep.Kotlin.stdLib
+    implementation Dep.AndroidX.appCompat
+    implementation Dep.AndroidX.coreKtx
+    testImplementation Dep.Test.junit
+    androidTestImplementation Dep.Test.androidJunitKtx
+    androidTestImplementation Dep.Test.espressoCore
+
+    implementation Dep.Koin.koinCore
+    implementation Dep.Koin.koinCoreExt
+    implementation Dep.Koin.koinAndroidScope
+    implementation Dep.Koin.koinAndroidViewModel
+    implementation Dep.Koin.koinAndroidExt
+    testImplementation Dep.Koin.koinTest
+
+    // reactive
+    implementation Dep.ReactiveX.rxJava
+    implementation Dep.ReactiveX.rxAndroid
+    implementation Dep.ReactiveX.rxKotlin
+
+    implementation Dep.AndroidX.Navigation.navFragment
+    implementation Dep.AndroidX.Navigation.navFragmentKtx
+    implementation Dep.AndroidX.Navigation.navUi
+    implementation Dep.AndroidX.Navigation.navUiKtx
+
+    implementation Dep.Groupie.groupie
+    implementation Dep.Groupie.groupieDataBinding
+}

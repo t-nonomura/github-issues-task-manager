@@ -11,7 +11,7 @@ interface AuthService {
      * OAuth認証
      * @see https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/
      */
-    @POST("login/oauth/access_token")
     @Headers("Accept: application/json")
+    @POST("login/oauth/access_token")
     suspend fun accessToken(@Body param: AccessTokenRequest): AccessTokenResponse
 }
