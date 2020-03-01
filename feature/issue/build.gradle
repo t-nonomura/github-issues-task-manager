@@ -1,44 +1,27 @@
 import dependencies.Dep
 
-apply plugin: 'com.android.application'
-
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
-apply plugin: "androidx.navigation.safeargs.kotlin"
-
-android.dataBinding.enabled = true
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
+
     defaultConfig {
-        applicationId "com.treeengineering.githubissuestaskmanager"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-    Properties properties = new Properties()
-    try {
-        properties.load(project.rootProject.file('local.properties').newDataInputStream())
-    } catch (Exception ex) {
-        throw new GradleException("can not load *.properties");
-    }
 
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
 
     buildTypes {
         release {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
-            // 環境変数を参照する
-            defaultConfig {
-                manifestPlaceholders = [clientId    : properties.getProperty("TMGI_GITHUB_OAUTH_CLIENT_ID"),
-                                        clientSecret: properties.getProperty("TMGI_GITHUB_OAUTH_CLIENT_SECRET")]
-            }
         }
     }
 
@@ -54,26 +37,13 @@ android {
 
 dependencies {
     implementation project(':core')
-    implementation project(':data:api')
     implementation project(':data:repository')
     implementation project(':data:db')
-    implementation project(':feature:login')
-    implementation project(':feature:repolist')
-    implementation project(':feature:issue')
+    implementation project(':model')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Dep.Kotlin.stdLib
     implementation Dep.AndroidX.appCompat
     implementation Dep.AndroidX.coreKtx
-    implementation Dep.AndroidX.constraint
-
-    implementation Dep.AndroidX.Navigation.navFragment
-    implementation Dep.AndroidX.Navigation.navFragmentKtx
-    implementation Dep.AndroidX.Navigation.navUi
-    implementation Dep.AndroidX.Navigation.navUiKtx
-
-    implementation Dep.Kotlin.stdLib
-
-    implementation Dep.Google.material
-
     testImplementation Dep.Test.junit
     androidTestImplementation Dep.Test.androidJunitKtx
     androidTestImplementation Dep.Test.espressoCore
@@ -84,4 +54,17 @@ dependencies {
     implementation Dep.Koin.koinAndroidViewModel
     implementation Dep.Koin.koinAndroidExt
     testImplementation Dep.Koin.koinTest
+
+    // reactive
+    implementation Dep.ReactiveX.rxJava
+    implementation Dep.ReactiveX.rxAndroid
+    implementation Dep.ReactiveX.rxKotlin
+
+    implementation Dep.AndroidX.Navigation.navFragment
+    implementation Dep.AndroidX.Navigation.navFragmentKtx
+    implementation Dep.AndroidX.Navigation.navUi
+    implementation Dep.AndroidX.Navigation.navUiKtx
+
+    implementation Dep.Groupie.groupie
+    implementation Dep.Groupie.groupieDataBinding
 }
