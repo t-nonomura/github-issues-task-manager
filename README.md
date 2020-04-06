@@ -1,4 +1,38 @@
 # github-issues-task-manager
-An Android app dedicated to task management with Github issues
+Adjusting Bitrise...
 
-[![Bitrise](https://app.bitrise.io/app/0b7817cc84a46493/status.svg?token=YO-SmLj7H3xEOdXW7lEe6g&branch=master)](https://app.bitrise.io/app/0b7817cc84a46493)
+
+
+This app is a task management app specializing in the operation of github issues.
+
+
+
+# Development Environment
+
+## Multi module project
+
+coming soon.
+
+
+
+# Architecture
+
+This app uses Flux.
+
+
+
+## Credit
+- Android Jetpack
+  - Android KTX
+  - Data Binding
+  - LiveData
+  - Navigation
+- Kotlin
+  - Stdlib
+  - Coroutines
+- DI
+  - Koin  
+
+
+
+
