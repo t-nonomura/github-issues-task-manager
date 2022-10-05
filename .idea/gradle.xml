@@ -19,6 +19,7 @@
             <option value="$PROJECT_DIR$/data/db" />
             <option value="$PROJECT_DIR$/data/repository" />
             <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/issue" />
             <option value="$PROJECT_DIR$/feature/login" />
             <option value="$PROJECT_DIR$/feature/repolist" />
             <option value="$PROJECT_DIR$/model" />
