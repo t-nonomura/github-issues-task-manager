@@ -13,7 +13,7 @@ jobs:
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           configuration-path: .github/release_labeler.yml
-  label_master_pr:
+  label_develop_pr:
     if: github.base_ref == 'develop'
     runs-on: ubunts-latest
     steps:
