@@ -2,7 +2,7 @@ name: Label release
 
 on:
   pull_request:
-    types: [ opened, synchronize ]
+    types: [ opened, edited, synchronize ]
 
 jobs:
   label_master_pr:
@@ -13,6 +13,7 @@ jobs:
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           configuration-path: .github/release_labeler.yml
+          sync-labels: true
   label_develop_pr:
     if: github.base_ref == 'develop'
     runs-on: ubuntu-latest
@@ -22,3 +23,4 @@ jobs:
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           configuration-path: .github/release_labeler.yml
+          sync-labels: true
