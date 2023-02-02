@@ -7,7 +7,7 @@ on:
 jobs:
   label_master_pr:
     if: github.base_ref == 'master'
-    runs-on: ubunts-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/labeler@v4
         with:
@@ -15,7 +15,7 @@ jobs:
           configuration-path: .github/release_labeler.yml
   label_develop_pr:
     if: github.base_ref == 'develop'
-    runs-on: ubunts-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/labeler@v4
         with:
