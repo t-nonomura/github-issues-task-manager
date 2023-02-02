@@ -2,7 +2,7 @@ name: Label release
 
 on:
   pull_request:
-    types: opened
+    types: [ opened, synchronize ]
 
 jobs:
   label_master_pr:
