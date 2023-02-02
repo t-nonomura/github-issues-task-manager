@@ -18,6 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/labeler@v4
+        if : startsWith(github.head_ref, 'sandbox/') || startsWith(github.head_ref, 'resolve')
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           configuration-path: .github/release_labeler.yml
